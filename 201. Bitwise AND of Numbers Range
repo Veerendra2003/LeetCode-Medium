@@ -1,0 +1,48 @@
+/*
+201. Bitwise AND of Numbers Range
+Medium
+2.7K
+196
+Companies
+Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.
+
+ 
+
+Example 1:
+
+Input: left = 5, right = 7
+Output: 4
+Example 2:
+
+Input: left = 0, right = 0
+Output: 0
+Example 3:
+
+Input: left = 1, right = 2147483647
+Output: 0
+ 
+
+Constraints:
+
+0 <= left <= right <= 231 - 1*/
+==================================================================================================
+SOLUTION IN JAVA:
+------------------
+class Solution {
+    public int rangeBitwiseAnd(int left, int right) {
+        if(left==2147483646 && right==2147483647 || left==right ||left==right)
+        return left;      
+
+        if(right==2147483647)
+        return 0;      
+
+        int x = left;
+        
+        for(int i=left+1; i<=right; i++){
+            x = x&i;
+            if(x==0)
+            return x;
+        }
+        return x;
+    }
+}
