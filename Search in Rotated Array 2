@@ -1,0 +1,114 @@
+/*
+Search in Rotated Array 2
+MediumAccuracy: 41.4%Submissions: 4K+Points: 4
+Lamp
+Don't Let the Fear of Missing Out Hold You Back from a Lucrative Career in Data Science. Try this course!
+
+Given a sorted and rotated array A of N elements which is rotated at some point, and may contain duplicates and given an element key. Check whether the key exist in the array A or not.
+
+Example 1:
+
+Input:
+N = 7
+A[] = {2,5,6,0,0,1,2}
+key = 0
+Output:
+1
+Explanation:
+0 is found at index 3.
+Example 2:
+
+Input:
+N = 7
+A[] = {2,5,6,0,0,1,2}
+key = 3
+Output:
+0
+Explanation:
+There is no element that has value 3.
+Your Task:
+Complete the function search() which takes a integer N and  an array A and the Key as input parameters, and returns the answer.
+
+Expected Time Complexity: O(log N).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 ≤ N ≤ 5000
+0 ≤ A[i] ≤ 108
+1 ≤ key ≤ 108*/
+=========================================================================================================================
+SOLUTION IN JAVA:
+=============================
+//{ Driver Code Starts
+import java.io.*;
+import java.util.*;
+
+
+class IntArray
+{
+    public static int[] input(BufferedReader br, int n) throws IOException
+    {
+        String[] s = br.readLine().trim().split(" ");
+        int[] a = new int[n];
+        for(int i = 0; i < n; i++)
+            a[i] = Integer.parseInt(s[i]);
+
+        return a;
+    }
+
+    public static void print(int[] a)
+    {
+        for(int e : a)
+            System.out.print(e + " ");
+        System.out.println();
+    }
+
+    public static void print(ArrayList<Integer> a)
+    {
+        for(int e : a)
+            System.out.print(e + " ");
+        System.out.println();
+    }
+}
+
+class GFG {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t;
+        t = Integer.parseInt(br.readLine());
+        while(t-- > 0){
+            
+            int N;
+            N = Integer.parseInt(br.readLine().trim());
+            
+            
+            int[] A = IntArray.input(br, N);
+            
+            
+            int Key;
+            Key = Integer.parseInt(br.readLine().trim());
+            
+            Solution obj = new Solution();
+            boolean res = obj.Search(N, A, Key);
+            
+            int _result_val = (res) ? 1 : 0;
+            System.out.println(_result_val);
+        }
+    }
+}
+
+// } Driver Code Ends
+
+
+class Solution {
+    public static boolean Search(int N, int[] nums, int target) {
+        // code here
+        for(int i=0, j=N-1; i<=j; i++,j--)
+        if(nums[i]==target || nums[j]==target)
+               return true;
+        
+        return false;
+    }
+    
+}
+        
